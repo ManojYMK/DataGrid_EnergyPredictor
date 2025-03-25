@@ -1,0 +1,109 @@
+2025-03-24 15:12:28,286 - __main__ - INFO - Loaded asset data: 30 rows
+2025-03-24 15:12:28,292 - __main__ - INFO - Prepared features with shape: (30, 13)
+2025-03-24 15:12:28,292 - __main__ - INFO - Feature names: ['maximum_capability', 'total_net_generation', 'dispatched_contingency_reserve', 'category_COGENERATION', 'category_COMBINED CYCLE', 'category_ENERGY STORAGE', 'category_GAS FIRED STEAM', 'category_HYDRO', 'category_OTHER', 'category_SIMPLE CYCLE', 'category_SOLAR', 'category_TOTAL', 'category_WIND']
+2025-03-24 15:12:28,292 - __main__ - INFO - Prepared targets: ['efficiency_ratio', 'optimization_potential']
+2025-03-24 15:12:28,654 - __main__ - INFO - Top 5 features correlated with efficiency_ratio:
+2025-03-24 15:12:28,654 - __main__ - INFO -   category_ENERGY STORAGE: -0.4879
+2025-03-24 15:12:28,654 - __main__ - INFO -   category_SIMPLE CYCLE: -0.4690
+2025-03-24 15:12:28,654 - __main__ - INFO -   category_SOLAR: 0.4413
+2025-03-24 15:12:28,654 - __main__ - INFO -   category_COGENERATION: 0.4102
+2025-03-24 15:12:28,654 - __main__ - INFO -   total_net_generation: 0.3819
+2025-03-24 15:12:28,708 - __main__ - INFO - Top 5 features correlated with optimization_potential:
+2025-03-24 15:12:28,708 - __main__ - INFO -   maximum_capability: 0.9800
+2025-03-24 15:12:28,708 - __main__ - INFO -   category_TOTAL: 0.9496
+2025-03-24 15:12:28,708 - __main__ - INFO -   total_net_generation: 0.9196
+2025-03-24 15:12:28,708 - __main__ - INFO -   dispatched_contingency_reserve: 0.8264
+2025-03-24 15:12:28,708 - __main__ - INFO -   category_OTHER: -0.2192
+2025-03-24 15:12:29,331 - __main__ - ERROR - Error performing feature selection: `np.float_` was removed in the NumPy 2.0 release. Use `np.float64` instead.
+2025-03-24 15:12:29,331 - __main__ - ERROR - Failed to perform feature selection
+2025-03-24 15:12:51,843 - __main__ - INFO - Loaded asset data: 30 rows
+2025-03-24 15:12:51,848 - __main__ - INFO - Prepared features with shape: (30, 13)
+2025-03-24 15:12:51,848 - __main__ - INFO - Feature names: ['maximum_capability', 'total_net_generation', 'dispatched_contingency_reserve', 'category_COGENERATION', 'category_COMBINED CYCLE', 'category_ENERGY STORAGE', 'category_GAS FIRED STEAM', 'category_HYDRO', 'category_OTHER', 'category_SIMPLE CYCLE', 'category_SOLAR', 'category_TOTAL', 'category_WIND']
+2025-03-24 15:12:51,848 - __main__ - INFO - Prepared targets: ['efficiency_ratio', 'optimization_potential']
+2025-03-24 15:12:52,168 - __main__ - INFO - Top 5 features correlated with efficiency_ratio:
+2025-03-24 15:12:52,168 - __main__ - INFO -   category_ENERGY STORAGE: -0.4879
+2025-03-24 15:12:52,168 - __main__ - INFO -   category_SIMPLE CYCLE: -0.4690
+2025-03-24 15:12:52,168 - __main__ - INFO -   category_SOLAR: 0.4413
+2025-03-24 15:12:52,168 - __main__ - INFO -   category_COGENERATION: 0.4102
+2025-03-24 15:12:52,168 - __main__ - INFO -   total_net_generation: 0.3819
+2025-03-24 15:12:52,223 - __main__ - INFO - Top 5 features correlated with optimization_potential:
+2025-03-24 15:12:52,223 - __main__ - INFO -   maximum_capability: 0.9800
+2025-03-24 15:12:52,223 - __main__ - INFO -   category_TOTAL: 0.9496
+2025-03-24 15:12:52,223 - __main__ - INFO -   total_net_generation: 0.9196
+2025-03-24 15:12:52,223 - __main__ - INFO -   dispatched_contingency_reserve: 0.8264
+2025-03-24 15:12:52,223 - __main__ - INFO -   category_OTHER: -0.2192
+2025-03-24 15:12:52,849 - __main__ - ERROR - Error performing feature selection: Object of type int64 is not JSON serializable
+2025-03-24 15:12:52,849 - __main__ - ERROR - Failed to perform feature selection
+2025-03-24 15:13:13,807 - __main__ - INFO - Loaded asset data: 30 rows
+2025-03-24 15:13:13,810 - __main__ - INFO - Prepared features with shape: (30, 13)
+2025-03-24 15:13:13,810 - __main__ - INFO - Feature names: ['maximum_capability', 'total_net_generation', 'dispatched_contingency_reserve', 'category_COGENERATION', 'category_COMBINED CYCLE', 'category_ENERGY STORAGE', 'category_GAS FIRED STEAM', 'category_HYDRO', 'category_OTHER', 'category_SIMPLE CYCLE', 'category_SOLAR', 'category_TOTAL', 'category_WIND']
+2025-03-24 15:13:13,810 - __main__ - INFO - Prepared targets: ['efficiency_ratio', 'optimization_potential']
+2025-03-24 15:13:14,117 - __main__ - INFO - Top 5 features correlated with efficiency_ratio:
+2025-03-24 15:13:14,117 - __main__ - INFO -   category_ENERGY STORAGE: -0.4879
+2025-03-24 15:13:14,117 - __main__ - INFO -   category_SIMPLE CYCLE: -0.4690
+2025-03-24 15:13:14,117 - __main__ - INFO -   category_SOLAR: 0.4413
+2025-03-24 15:13:14,117 - __main__ - INFO -   category_COGENERATION: 0.4102
+2025-03-24 15:13:14,117 - __main__ - INFO -   total_net_generation: 0.3819
+2025-03-24 15:13:14,176 - __main__ - INFO - Top 5 features correlated with optimization_potential:
+2025-03-24 15:13:14,176 - __main__ - INFO -   maximum_capability: 0.9800
+2025-03-24 15:13:14,176 - __main__ - INFO -   category_TOTAL: 0.9496
+2025-03-24 15:13:14,176 - __main__ - INFO -   total_net_generation: 0.9196
+2025-03-24 15:13:14,176 - __main__ - INFO -   dispatched_contingency_reserve: 0.8264
+2025-03-24 15:13:14,176 - __main__ - INFO -   category_OTHER: -0.2192
+2025-03-24 15:13:15,775 - __main__ - INFO - Feature analysis completed successfully
+2025-03-24 15:13:15,775 - __main__ - INFO - Results saved to: /Users/manoj/Desktop/AI Editor/energy_optimization/feature_analysis
+2025-03-24 15:13:15,775 - __main__ - INFO - 
+Most important features for efficiency_ratio:
+2025-03-24 15:13:15,775 - __main__ - INFO -   total_net_generation: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_COGENERATION: Selected by 3 methods (f_regression, rfe, lasso)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_ENERGY STORAGE: Selected by 3 methods (f_regression, mutual_info, lasso)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_SOLAR: Selected by 3 methods (f_regression, rfe, lasso)
+2025-03-24 15:13:15,775 - __main__ - INFO -   dispatched_contingency_reserve: Selected by 3 methods (mutual_info, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_WIND: Selected by 3 methods (mutual_info, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_GAS FIRED STEAM: Selected by 3 methods (lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO - 
+Most important features for optimization_potential:
+2025-03-24 15:13:15,775 - __main__ - INFO -   maximum_capability: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_TOTAL: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   total_net_generation: Selected by 5 methods (f_regression, rfe, lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   dispatched_contingency_reserve: Selected by 5 methods (f_regression, mutual_info, lasso, random_forest, permutation)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_OTHER: Selected by 3 methods (f_regression, mutual_info, lasso)
+2025-03-24 15:13:15,775 - __main__ - INFO -   category_WIND: Selected by 3 methods (lasso, random_forest, permutation)
+2025-03-24 15:16:55,922 - __main__ - INFO - Starting feature correlation analysis and selection...
+2025-03-24 15:16:55,925 - feature_correlation_analysis - INFO - Loaded asset data: 30 rows
+2025-03-24 15:16:55,928 - feature_correlation_analysis - INFO - Prepared features with shape: (30, 13)
+2025-03-24 15:16:55,928 - feature_correlation_analysis - INFO - Feature names: ['maximum_capability', 'total_net_generation', 'dispatched_contingency_reserve', 'category_COGENERATION', 'category_COMBINED CYCLE', 'category_ENERGY STORAGE', 'category_GAS FIRED STEAM', 'category_HYDRO', 'category_OTHER', 'category_SIMPLE CYCLE', 'category_SOLAR', 'category_TOTAL', 'category_WIND']
+2025-03-24 15:16:55,928 - feature_correlation_analysis - INFO - Prepared targets: ['efficiency_ratio', 'optimization_potential']
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO - Top 5 features correlated with efficiency_ratio:
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO -   category_ENERGY STORAGE: -0.4879
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO -   category_SIMPLE CYCLE: -0.4690
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO -   category_SOLAR: 0.4413
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO -   category_COGENERATION: 0.4102
+2025-03-24 15:16:56,286 - feature_correlation_analysis - INFO -   total_net_generation: 0.3819
+2025-03-24 15:16:56,343 - feature_correlation_analysis - INFO - Top 5 features correlated with optimization_potential:
+2025-03-24 15:16:56,343 - feature_correlation_analysis - INFO -   maximum_capability: 0.9800
+2025-03-24 15:16:56,343 - feature_correlation_analysis - INFO -   category_TOTAL: 0.9496
+2025-03-24 15:16:56,344 - feature_correlation_analysis - INFO -   total_net_generation: 0.9196
+2025-03-24 15:16:56,344 - feature_correlation_analysis - INFO -   dispatched_contingency_reserve: 0.8264
+2025-03-24 15:16:56,344 - feature_correlation_analysis - INFO -   category_OTHER: -0.2192
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO - Feature analysis completed successfully
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO - Results saved to: /Users/manoj/Desktop/AI Editor/energy_optimization/feature_analysis
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO - 
+Most important features for efficiency_ratio:
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   total_net_generation: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_COGENERATION: Selected by 3 methods (f_regression, rfe, lasso)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_ENERGY STORAGE: Selected by 3 methods (f_regression, mutual_info, lasso)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_SOLAR: Selected by 3 methods (f_regression, rfe, lasso)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   dispatched_contingency_reserve: Selected by 3 methods (mutual_info, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_WIND: Selected by 3 methods (mutual_info, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_GAS FIRED STEAM: Selected by 3 methods (lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO - 
+Most important features for optimization_potential:
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   maximum_capability: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_TOTAL: Selected by 6 methods (f_regression, mutual_info, rfe, lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   total_net_generation: Selected by 5 methods (f_regression, rfe, lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   dispatched_contingency_reserve: Selected by 5 methods (f_regression, mutual_info, lasso, random_forest, permutation)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_ENERGY STORAGE: Selected by 3 methods (mutual_info, rfe, lasso)
+2025-03-24 15:16:57,948 - feature_correlation_analysis - INFO -   category_WIND: Selected by 3 methods (lasso, random_forest, permutation)
+2025-03-24 15:16:57,950 - __main__ - INFO - Markdown report generated: /Users/manoj/Desktop/AI Editor/energy_optimization/feature_analysis_report.md
+2025-03-24 15:16:57,950 - __main__ - INFO - Feature analysis and reporting completed successfully

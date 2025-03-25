@@ -1,0 +1,90 @@
+2025-03-24 14:43:36,334 - __main__ - INFO - Step 1: Extracting data from PDF...
+2025-03-24 14:43:36,335 - pdf_data_extractor - INFO - Extracting data from /Users/manoj/Desktop/AI Editor/CSDReportServlet.pdf...
+2025-03-24 14:43:36,337 - pdf_data_extractor - INFO - PDF has 3 pages.
+2025-03-24 14:43:36,796 - pdf_data_extractor - INFO - Extracted summary data: {'total_net_generation': 11257, 'net_actual_interchange': 693, 'alberta_internal_load': 10564, 'net_to_grid_generation': 8959, 'contingency_reserve_required': 516, 'dispatched_contingency_reserve': 525, 'dispatched_contingency_reserve_gen': 431, 'dispatched_contingency_reserve_other': 84, 'ffr_armed_dispatch': 0, 'ffr_offered_volume': 173, 'long_lead_time_volume': 2146}
+2025-03-24 14:43:36,801 - pdf_data_extractor - INFO - Extracted generation data by group: 10 rows
+2025-03-24 14:43:36,802 - pdf_data_extractor - INFO - Extracted interchange data: 4 rows
+2025-03-24 14:43:36,803 - pdf_data_extractor - INFO - Extracted 0 GAS assets
+2025-03-24 14:43:36,805 - pdf_data_extractor - INFO - Extracted 0 HYDRO assets
+2025-03-24 14:43:36,806 - pdf_data_extractor - INFO - Extracted 0 ENERGY STORAGE assets
+2025-03-24 14:43:36,807 - pdf_data_extractor - INFO - Extracted 0 SOLAR assets
+2025-03-24 14:43:36,807 - pdf_data_extractor - INFO - Extracted 0 WIND assets
+2025-03-24 14:43:36,808 - pdf_data_extractor - INFO - Extracted 0 COGENERATION assets
+2025-03-24 14:43:36,811 - pdf_data_extractor - INFO - Extracted 0 COMBINED CYCLE assets
+2025-03-24 14:43:36,812 - pdf_data_extractor - INFO - Extracted 0 BIOMASS AND OTHER assets
+2025-03-24 14:43:36,812 - pdf_data_extractor - INFO - Data extraction completed successfully.
+2025-03-24 14:43:36,818 - pdf_data_extractor - INFO - All data saved to directory: /Users/manoj/Desktop/AI Editor/energy_optimization/data
+2025-03-24 14:43:36,818 - __main__ - INFO - Data extraction complete. Data saved to /Users/manoj/Desktop/AI Editor/energy_optimization/data
+2025-03-24 14:43:36,818 - __main__ - INFO - Step 2: Running energy optimization pipeline...
+2025-03-24 14:43:36,822 - energy_optimizer - INFO - Loaded summary data: 1 rows
+2025-03-24 14:43:36,823 - energy_optimizer - INFO - Loaded generation by group data: 10 rows
+2025-03-24 14:43:36,824 - energy_optimizer - WARNING - Asset data file not found: /Users/manoj/Desktop/AI Editor/energy_optimization/data/all_assets.csv
+2025-03-24 14:43:36,824 - energy_optimizer - ERROR - Data not loaded. Call load_data() first.
+2025-03-24 14:43:36,824 - energy_optimizer - ERROR - Failed to prepare features and targets
+2025-03-24 14:43:36,824 - __main__ - ERROR - Energy optimization pipeline failed
+2025-03-24 14:45:50,626 - __main__ - INFO - Step 1: Extracting data from PDF...
+2025-03-24 14:45:50,627 - pdf_data_extractor - INFO - Extracting data from /Users/manoj/Desktop/AI Editor/CSDReportServlet.pdf...
+2025-03-24 14:45:50,628 - pdf_data_extractor - INFO - PDF has 3 pages.
+2025-03-24 14:45:50,808 - pdf_data_extractor - INFO - Extracted summary data: {'total_net_generation': 11257, 'net_actual_interchange': 693, 'alberta_internal_load': 10564, 'net_to_grid_generation': 8959, 'contingency_reserve_required': 516, 'dispatched_contingency_reserve': 525, 'dispatched_contingency_reserve_gen': 431, 'dispatched_contingency_reserve_other': 84, 'ffr_armed_dispatch': 0, 'ffr_offered_volume': 173, 'long_lead_time_volume': 2146}
+2025-03-24 14:45:50,808 - pdf_data_extractor - INFO - Extracted generation data by group: 10 rows
+2025-03-24 14:45:50,809 - pdf_data_extractor - INFO - Extracted interchange data: 4 rows
+2025-03-24 14:45:50,809 - pdf_data_extractor - INFO - Extracted 0 GAS assets
+2025-03-24 14:45:50,809 - pdf_data_extractor - INFO - Extracted 0 HYDRO assets
+2025-03-24 14:45:50,810 - pdf_data_extractor - INFO - Extracted 0 ENERGY STORAGE assets
+2025-03-24 14:45:50,810 - pdf_data_extractor - INFO - Extracted 0 SOLAR assets
+2025-03-24 14:45:50,810 - pdf_data_extractor - INFO - Extracted 0 WIND assets
+2025-03-24 14:45:50,811 - pdf_data_extractor - INFO - Extracted 0 COGENERATION assets
+2025-03-24 14:45:50,811 - pdf_data_extractor - INFO - Extracted 0 COMBINED CYCLE assets
+2025-03-24 14:45:50,811 - pdf_data_extractor - INFO - Extracted 0 BIOMASS AND OTHER assets
+2025-03-24 14:45:50,811 - pdf_data_extractor - INFO - Data extraction completed successfully.
+2025-03-24 14:45:50,813 - pdf_data_extractor - INFO - All data saved to directory: /Users/manoj/Desktop/AI Editor/energy_optimization/data
+2025-03-24 14:45:50,813 - __main__ - INFO - Data extraction complete. Data saved to /Users/manoj/Desktop/AI Editor/energy_optimization/data
+2025-03-24 14:45:50,813 - __main__ - WARNING - No actual asset data found in PDF. Using sample data for demonstration.
+2025-03-24 14:45:50,813 - __main__ - INFO - Step 2: Running energy optimization pipeline...
+2025-03-24 14:45:50,814 - energy_optimizer - INFO - Loaded summary data: 1 rows
+2025-03-24 14:45:50,814 - energy_optimizer - INFO - Loaded generation by group data: 10 rows
+2025-03-24 14:45:50,814 - energy_optimizer - WARNING - Asset data file not found: /Users/manoj/Desktop/AI Editor/energy_optimization/data/all_assets.csv
+2025-03-24 14:45:50,814 - energy_optimizer - INFO - Creating sample asset data for demonstration purposes
+2025-03-24 14:45:50,816 - energy_optimizer - INFO - Created and saved sample asset data with 30 rows
+2025-03-24 14:45:50,820 - energy_optimizer - INFO - Prepared features with shape: (30, 13)
+2025-03-24 14:45:50,821 - energy_optimizer - INFO - Prepared targets: ['efficiency_ratio', 'optimization_potential']
+2025-03-24 14:45:50,823 - energy_optimizer - INFO - Data split for efficiency_ratio: 24 training samples, 6 testing samples
+2025-03-24 14:45:50,830 - energy_optimizer - INFO - Trained linear_regression for efficiency_ratio: Test MSE = 0.0000, Test R² = 1.0000
+2025-03-24 14:45:50,865 - energy_optimizer - INFO - Trained random_forest for efficiency_ratio: Test MSE = 0.0016, Test R² = 0.9772
+2025-03-24 14:45:50,880 - energy_optimizer - INFO - Trained gradient_boosting for efficiency_ratio: Test MSE = 0.0000, Test R² = 1.0000
+2025-03-24 14:45:51,389 - energy_optimizer - INFO - Epoch [10/100], Loss: 0.3939
+2025-03-24 14:45:51,393 - energy_optimizer - INFO - Epoch [20/100], Loss: 0.2625
+2025-03-24 14:45:51,396 - energy_optimizer - INFO - Epoch [30/100], Loss: 0.1749
+2025-03-24 14:45:51,399 - energy_optimizer - INFO - Epoch [40/100], Loss: 0.0714
+2025-03-24 14:45:51,402 - energy_optimizer - INFO - Epoch [50/100], Loss: 0.0504
+2025-03-24 14:45:51,405 - energy_optimizer - INFO - Epoch [60/100], Loss: 0.0397
+2025-03-24 14:45:51,409 - energy_optimizer - INFO - Epoch [70/100], Loss: 0.0134
+2025-03-24 14:45:51,412 - energy_optimizer - INFO - Epoch [80/100], Loss: 0.0273
+2025-03-24 14:45:51,416 - energy_optimizer - INFO - Epoch [90/100], Loss: 0.0108
+2025-03-24 14:45:51,419 - energy_optimizer - INFO - Epoch [100/100], Loss: 0.0105
+2025-03-24 14:45:51,419 - energy_optimizer - INFO - Trained neural network for efficiency_ratio: Test MSE = 0.0020, Test R² = 0.9705
+2025-03-24 14:45:51,420 - energy_optimizer - INFO - Data split for optimization_potential: 24 training samples, 6 testing samples
+2025-03-24 14:45:51,421 - energy_optimizer - INFO - Trained linear_regression for optimization_potential: Test MSE = 0.0000, Test R² = 1.0000
+2025-03-24 14:45:51,455 - energy_optimizer - INFO - Trained random_forest for optimization_potential: Test MSE = 23179.7842, Test R² = 0.9872
+2025-03-24 14:45:51,468 - energy_optimizer - INFO - Trained gradient_boosting for optimization_potential: Test MSE = 0.1178, Test R² = 1.0000
+2025-03-24 14:45:51,471 - energy_optimizer - INFO - Epoch [10/100], Loss: 1631453.5000
+2025-03-24 14:45:51,475 - energy_optimizer - INFO - Epoch [20/100], Loss: 1631313.3750
+2025-03-24 14:45:51,478 - energy_optimizer - INFO - Epoch [30/100], Loss: 1631134.3750
+2025-03-24 14:45:51,481 - energy_optimizer - INFO - Epoch [40/100], Loss: 1630659.0000
+2025-03-24 14:45:51,485 - energy_optimizer - INFO - Epoch [50/100], Loss: 1629902.6250
+2025-03-24 14:45:51,488 - energy_optimizer - INFO - Epoch [60/100], Loss: 1628199.3750
+2025-03-24 14:45:51,491 - energy_optimizer - INFO - Epoch [70/100], Loss: 1625831.3750
+2025-03-24 14:45:51,495 - energy_optimizer - INFO - Epoch [80/100], Loss: 1622123.3750
+2025-03-24 14:45:51,498 - energy_optimizer - INFO - Epoch [90/100], Loss: 1614022.6250
+2025-03-24 14:45:51,501 - energy_optimizer - INFO - Epoch [100/100], Loss: 1603891.5000
+2025-03-24 14:45:51,502 - energy_optimizer - INFO - Trained neural network for optimization_potential: Test MSE = 2785365.2500, Test R² = -0.5381
+2025-03-24 14:45:51,687 - energy_optimizer - INFO - Saved model comparison plot for efficiency_ratio
+2025-03-24 14:45:51,718 - energy_optimizer - INFO - Saved neural network learning curve for efficiency_ratio
+2025-03-24 14:45:51,778 - energy_optimizer - INFO - Saved model comparison plot for optimization_potential
+2025-03-24 14:45:51,810 - energy_optimizer - INFO - Saved neural network learning curve for optimization_potential
+2025-03-24 14:45:51,812 - energy_optimizer - INFO - Total potential generation increase: 0.20 MW (0.00%)
+2025-03-24 14:45:52,022 - energy_optimizer - INFO - Saved optimization recommendation plots
+2025-03-24 14:45:52,023 - energy_optimizer - INFO - Generated optimization report: /Users/manoj/Desktop/AI Editor/energy_optimization/reports/optimization_report.txt
+2025-03-24 14:45:52,023 - energy_optimizer - INFO - Optimization report generated at: /Users/manoj/Desktop/AI Editor/energy_optimization/reports/optimization_report.txt
+2025-03-24 14:45:52,023 - energy_optimizer - INFO - Energy optimization pipeline completed successfully
+2025-03-24 14:45:52,023 - __main__ - INFO - Energy optimization pipeline completed successfully

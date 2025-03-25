@@ -1,0 +1,2 @@
+total_net_generation,net_actual_interchange,alberta_internal_load,net_to_grid_generation,contingency_reserve_required,dispatched_contingency_reserve,dispatched_contingency_reserve_gen,dispatched_contingency_reserve_other,ffr_armed_dispatch,ffr_offered_volume,long_lead_time_volume
+11257,693,10564,8959,516,525,431,84,0,173,2146

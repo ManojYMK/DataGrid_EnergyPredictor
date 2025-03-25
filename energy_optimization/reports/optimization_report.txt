@@ -1,0 +1,81 @@
+================================================================================
+ENERGY CONSUMPTION OPTIMIZATION REPORT
+================================================================================
+
+SUMMARY
+--------------------------------------------------
+Current Total Generation: 22506.00 MW
+Potential Generation Increase: 0.20 MW
+Potential Percentage Increase: 0.00%
+
+TOP 10 OPTIMIZATION RECOMMENDATIONS
+--------------------------------------------------
+1. GAS FIRED STEAM Asset 2 (GAS FIRED STEAM)
+   Current Generation: 155.00 MW
+   Maximum Capability: 1026.00 MW
+   Current Efficiency: 15.11%
+   Potential Efficiency: 15.11%
+   Potential Generation Increase: 0.03 MW
+
+2. GAS FIRED STEAM Asset 1 (GAS FIRED STEAM)
+   Current Generation: 155.00 MW
+   Maximum Capability: 1026.00 MW
+   Current Efficiency: 15.11%
+   Potential Efficiency: 15.11%
+   Potential Generation Increase: 0.03 MW
+
+3. GAS FIRED STEAM Asset 3 (GAS FIRED STEAM)
+   Current Generation: 155.00 MW
+   Maximum Capability: 1026.00 MW
+   Current Efficiency: 15.11%
+   Potential Efficiency: 15.11%
+   Potential Generation Increase: 0.03 MW
+
+4. WIND Asset 1 (WIND)
+   Current Generation: 689.00 MW
+   Maximum Capability: 1896.00 MW
+   Current Efficiency: 36.34%
+   Potential Efficiency: 36.34%
+   Potential Generation Increase: 0.02 MW
+
+5. WIND Asset 2 (WIND)
+   Current Generation: 689.00 MW
+   Maximum Capability: 1896.00 MW
+   Current Efficiency: 36.34%
+   Potential Efficiency: 36.34%
+   Potential Generation Increase: 0.02 MW
+
+6. WIND Asset 3 (WIND)
+   Current Generation: 689.00 MW
+   Maximum Capability: 1896.00 MW
+   Current Efficiency: 36.34%
+   Potential Efficiency: 36.34%
+   Potential Generation Increase: 0.02 MW
+
+7. TOTAL Asset 1 (TOTAL)
+   Current Generation: 3752.00 MW
+   Maximum Capability: 7719.00 MW
+   Current Efficiency: 48.61%
+   Potential Efficiency: 48.61%
+   Potential Generation Increase: 0.01 MW
+
+8. TOTAL Asset 3 (TOTAL)
+   Current Generation: 3752.00 MW
+   Maximum Capability: 7719.00 MW
+   Current Efficiency: 48.61%
+   Potential Efficiency: 48.61%
+   Potential Generation Increase: 0.01 MW
+
+9. TOTAL Asset 2 (TOTAL)
+   Current Generation: 3752.00 MW
+   Maximum Capability: 7719.00 MW
+   Current Efficiency: 48.61%
+   Potential Efficiency: 48.61%
+   Potential Generation Increase: 0.01 MW
+
+10. HYDRO Asset 1 (HYDRO)
+   Current Generation: 68.00 MW
+   Maximum Capability: 298.00 MW
+   Current Efficiency: 22.82%
+   Potential Efficiency: 22.82%
+   Potential Generation Increase: 0.00 MW

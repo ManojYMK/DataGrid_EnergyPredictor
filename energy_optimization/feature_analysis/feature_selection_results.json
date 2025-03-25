@@ -1,0 +1,356 @@
+{
+    "efficiency_ratio": {
+        "f_regression": {
+            "selected_features": [
+                "total_net_generation",
+                "category_COGENERATION",
+                "category_ENERGY STORAGE",
+                "category_SIMPLE CYCLE",
+                "category_SOLAR"
+            ],
+            "all_scores": {
+                "maximum_capability": 1.7769241551254458,
+                "total_net_generation": 4.7815503230232625,
+                "dispatched_contingency_reserve": 1.1882805473884763,
+                "category_COGENERATION": 5.663347969543899,
+                "category_COMBINED CYCLE": 2.3393762349471414,
+                "category_ENERGY STORAGE": 8.74638496433029,
+                "category_GAS FIRED STEAM": 2.7838401207151735,
+                "category_HYDRO": 1.2306321616097926,
+                "category_OTHER": 1.980995235939785,
+                "category_SIMPLE CYCLE": 7.895142869860177,
+                "category_SOLAR": 6.769998930079868,
+                "category_TOTAL": 0.37061014652108026,
+                "category_WIND": 0.03981607448197424
+            }
+        },
+        "mutual_info": {
+            "selected_features": [
+                "total_net_generation",
+                "dispatched_contingency_reserve",
+                "category_ENERGY STORAGE",
+                "category_TOTAL",
+                "category_WIND"
+            ],
+            "all_scores": {
+                "maximum_capability": 0.0,
+                "total_net_generation": 0.3034829513941266,
+                "dispatched_contingency_reserve": 0.4485474116381196,
+                "category_COGENERATION": 0.01817733990147663,
+                "category_COMBINED CYCLE": 0.01817733990147663,
+                "category_ENERGY STORAGE": 0.018177339901477296,
+                "category_GAS FIRED STEAM": 0.01817733990147663,
+                "category_HYDRO": 0.01817733990147663,
+                "category_OTHER": 0.0,
+                "category_SIMPLE CYCLE": 0.018177339901476852,
+                "category_SOLAR": 0.01817733990147663,
+                "category_TOTAL": 0.01817733990147774,
+                "category_WIND": 0.09651067323481022
+            }
+        },
+        "rfe": {
+            "selected_features": [
+                "total_net_generation",
+                "category_COGENERATION",
+                "category_COMBINED CYCLE",
+                "category_OTHER",
+                "category_SOLAR"
+            ],
+            "feature_ranking": {
+                "maximum_capability": 7,
+                "total_net_generation": 1,
+                "dispatched_contingency_reserve": 6,
+                "category_COGENERATION": 1,
+                "category_COMBINED CYCLE": 1,
+                "category_ENERGY STORAGE": 2,
+                "category_GAS FIRED STEAM": 4,
+                "category_HYDRO": 5,
+                "category_OTHER": 1,
+                "category_SIMPLE CYCLE": 3,
+                "category_SOLAR": 1,
+                "category_TOTAL": 9,
+                "category_WIND": 8
+            }
+        },
+        "lasso": {
+            "selected_features": [
+                "total_net_generation",
+                "category_COGENERATION",
+                "category_COMBINED CYCLE",
+                "category_ENERGY STORAGE",
+                "category_GAS FIRED STEAM",
+                "category_HYDRO",
+                "category_OTHER",
+                "category_SIMPLE CYCLE",
+                "category_SOLAR"
+            ],
+            "coefficients": {
+                "maximum_capability": 0.0,
+                "total_net_generation": 0.036590601384741205,
+                "dispatched_contingency_reserve": -0.0,
+                "category_COGENERATION": 0.08855761284067497,
+                "category_COMBINED CYCLE": 0.06309874313138396,
+                "category_ENERGY STORAGE": -0.09615287181540241,
+                "category_GAS FIRED STEAM": -0.05238538561770173,
+                "category_HYDRO": -0.02837961912546062,
+                "category_OTHER": 0.06531483388950715,
+                "category_SIMPLE CYCLE": -0.09163310843410323,
+                "category_SOLAR": 0.10627336915751179,
+                "category_TOTAL": 0.0,
+                "category_WIND": -0.0
+            }
+        },
+        "random_forest": {
+            "importances": {
+                "maximum_capability": 0.04022043839273734,
+                "total_net_generation": 0.37942264823957245,
+                "dispatched_contingency_reserve": 0.42184419940115164,
+                "category_COGENERATION": 0.005076779856000151,
+                "category_COMBINED CYCLE": 0.0038969831618178826,
+                "category_ENERGY STORAGE": 0.0006069247382315579,
+                "category_GAS FIRED STEAM": 0.026954340746344257,
+                "category_HYDRO": 0.004011664809551801,
+                "category_OTHER": 0.01095607441362047,
+                "category_SIMPLE CYCLE": 0.00106714477083866,
+                "category_SOLAR": 0.004221846462078401,
+                "category_TOTAL": 0.022943706314422073,
+                "category_WIND": 0.07877724869363328
+            },
+            "selected_features": [
+                "category_GAS FIRED STEAM",
+                "maximum_capability",
+                "category_WIND",
+                "total_net_generation",
+                "dispatched_contingency_reserve"
+            ]
+        },
+        "permutation": {
+            "importances": {
+                "maximum_capability": 0.00921954580939549,
+                "total_net_generation": 0.49299503253692184,
+                "dispatched_contingency_reserve": 0.6063920520834574,
+                "category_COGENERATION": 0.002251237567771969,
+                "category_COMBINED CYCLE": 0.0036878154899301573,
+                "category_ENERGY STORAGE": 0.00012375830201953874,
+                "category_GAS FIRED STEAM": 0.0316046455497342,
+                "category_HYDRO": 0.0008414520944970861,
+                "category_OTHER": 0.0014164582684149996,
+                "category_SIMPLE CYCLE": -8.346820792970443e-06,
+                "category_SOLAR": 0.0032351227316178453,
+                "category_TOTAL": 0.0033314809326676076,
+                "category_WIND": 0.14360841678427844
+            },
+            "selected_features": [
+                "maximum_capability",
+                "category_GAS FIRED STEAM",
+                "category_WIND",
+                "total_net_generation",
+                "dispatched_contingency_reserve"
+            ]
+        },
+        "pca": {
+            "n_components": 9,
+            "explained_variance": [
+                0.2928903543600405,
+                0.10753149192041693,
+                0.08675764089902974,
+                0.08547008547008558,
+                0.08547008547008549,
+                0.08547008547008549,
+                0.08547008547008544,
+                0.08547008547008544,
+                0.0854700854700854
+            ],
+            "cumulative_variance": [
+                0.2928903543600405,
+                0.40042184628045746,
+                0.4871794871794872,
+                0.5726495726495728,
+                0.6581196581196583,
+                0.7435897435897438,
+                0.8290598290598292,
+                0.9145299145299146,
+                1.0
+            ]
+        }
+    },
+    "optimization_potential": {
+        "f_regression": {
+            "selected_features": [
+                "maximum_capability",
+                "total_net_generation",
+                "dispatched_contingency_reserve",
+                "category_OTHER",
+                "category_TOTAL"
+            ],
+            "all_scores": {
+                "maximum_capability": 680.6786211725158,
+                "total_net_generation": 153.49620560085512,
+                "dispatched_contingency_reserve": 60.30309785574281,
+                "category_COGENERATION": 0.13855427248548294,
+                "category_COMBINED CYCLE": 0.21467656741478336,
+                "category_ENERGY STORAGE": 1.4050603000641002,
+                "category_GAS FIRED STEAM": 0.015067025349818837,
+                "category_HYDRO": 0.8194179906634174,
+                "category_OTHER": 1.4131533533552032,
+                "category_SIMPLE CYCLE": 0.5662456386000193,
+                "category_SOLAR": 1.0712465182419368,
+                "category_TOTAL": 257.1276948448242,
+                "category_WIND": 0.43535356843932954
+            }
+        },
+        "mutual_info": {
+            "selected_features": [
+                "maximum_capability",
+                "dispatched_contingency_reserve",
+                "category_ENERGY STORAGE",
+                "category_SIMPLE CYCLE",
+                "category_TOTAL"
+            ],
+            "all_scores": {
+                "maximum_capability": 0.5717706252038852,
+                "total_net_generation": 0.0,
+                "dispatched_contingency_reserve": 0.6102878127806703,
+                "category_COGENERATION": 0.0,
+                "category_COMBINED CYCLE": 0.01817733990147663,
+                "category_ENERGY STORAGE": 0.028900748038678703,
+                "category_GAS FIRED STEAM": 0.01817733990147663,
+                "category_HYDRO": 0.0,
+                "category_OTHER": 0.0,
+                "category_SIMPLE CYCLE": 0.09651067323481022,
+                "category_SOLAR": 0.028900748038678037,
+                "category_TOTAL": 0.11538746739610795,
+                "category_WIND": 0.018177339901477074
+            }
+        },
+        "rfe": {
+            "selected_features": [
+                "maximum_capability",
+                "total_net_generation",
+                "category_COGENERATION",
+                "category_ENERGY STORAGE",
+                "category_TOTAL"
+            ],
+            "feature_ranking": {
+                "maximum_capability": 1,
+                "total_net_generation": 1,
+                "dispatched_contingency_reserve": 2,
+                "category_COGENERATION": 1,
+                "category_COMBINED CYCLE": 8,
+                "category_ENERGY STORAGE": 1,
+                "category_GAS FIRED STEAM": 3,
+                "category_HYDRO": 5,
+                "category_OTHER": 7,
+                "category_SIMPLE CYCLE": 9,
+                "category_SOLAR": 6,
+                "category_TOTAL": 1,
+                "category_WIND": 4
+            }
+        },
+        "lasso": {
+            "selected_features": [
+                "maximum_capability",
+                "total_net_generation",
+                "dispatched_contingency_reserve",
+                "category_COGENERATION",
+                "category_COMBINED CYCLE",
+                "category_ENERGY STORAGE",
+                "category_GAS FIRED STEAM",
+                "category_HYDRO",
+                "category_OTHER",
+                "category_SIMPLE CYCLE",
+                "category_SOLAR",
+                "category_TOTAL",
+                "category_WIND"
+            ],
+            "coefficients": {
+                "maximum_capability": 1097.5299630837933,
+                "total_net_generation": -44.83309088934274,
+                "dispatched_contingency_reserve": 76.75673166628351,
+                "category_COGENERATION": -142.58441506348885,
+                "category_COMBINED CYCLE": -58.58223256641887,
+                "category_ENERGY STORAGE": -36.971547440214096,
+                "category_GAS FIRED STEAM": 81.3615305478142,
+                "category_HYDRO": -7.728569493527121,
+                "category_OTHER": -22.023595459732288,
+                "category_SIMPLE CYCLE": 17.518833840997722,
+                "category_SOLAR": -57.308035549601314,
+                "category_TOTAL": -33.500688342050985,
+                "category_WIND": 66.10686040153378
+            }
+        },
+        "random_forest": {
+            "importances": {
+                "maximum_capability": 0.3630234305231464,
+                "total_net_generation": 0.21781932105504082,
+                "dispatched_contingency_reserve": 0.23707894737311214,
+                "category_COGENERATION": 5.918211159432078e-05,
+                "category_COMBINED CYCLE": 0.0006157195063431528,
+                "category_ENERGY STORAGE": 3.565447879769467e-05,
+                "category_GAS FIRED STEAM": 0.002083378140260526,
+                "category_HYDRO": 5.944110283085934e-05,
+                "category_OTHER": 3.5913970001295454e-06,
+                "category_SIMPLE CYCLE": 0.0018585177816639992,
+                "category_SOLAR": 4.5617514687668306e-05,
+                "category_TOTAL": 0.1647515889712891,
+                "category_WIND": 0.012565610044233169
+            },
+            "selected_features": [
+                "category_WIND",
+                "category_TOTAL",
+                "total_net_generation",
+                "dispatched_contingency_reserve",
+                "maximum_capability"
+            ]
+        },
+        "permutation": {
+            "importances": {
+                "maximum_capability": 0.422650672243039,
+                "total_net_generation": 0.12118326956216756,
+                "dispatched_contingency_reserve": 0.151189579187188,
+                "category_COGENERATION": -2.925074652478932e-05,
+                "category_COMBINED CYCLE": 0.00010328495463787223,
+                "category_ENERGY STORAGE": 7.288149341100336e-06,
+                "category_GAS FIRED STEAM": -4.627446007592351e-05,
+                "category_HYDRO": 3.1546913583335724e-05,
+                "category_OTHER": 1.0525709676190154e-06,
+                "category_SIMPLE CYCLE": 0.0005799684338847367,
+                "category_SOLAR": 2.9504051248452345e-05,
+                "category_TOTAL": 0.07829350382173142,
+                "category_WIND": 0.002651603683592696
+            },
+            "selected_features": [
+                "category_WIND",
+                "category_TOTAL",
+                "total_net_generation",
+                "dispatched_contingency_reserve",
+                "maximum_capability"
+            ]
+        },
+        "pca": {
+            "n_components": 9,
+            "explained_variance": [
+                0.2928903543600405,
+                0.10753149192041693,
+                0.08675764089902974,
+                0.08547008547008558,
+                0.08547008547008549,
+                0.08547008547008549,
+                0.08547008547008544,
+                0.08547008547008544,
+                0.0854700854700854
+            ],
+            "cumulative_variance": [
+                0.2928903543600405,
+                0.40042184628045746,
+                0.4871794871794872,
+                0.5726495726495728,
+                0.6581196581196583,
+                0.7435897435897438,
+                0.8290598290598292,
+                0.9145299145299146,
+                1.0
+            ]
+        }
+    }
+}
