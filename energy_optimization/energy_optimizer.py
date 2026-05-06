@@ -7,21 +7,28 @@ based on the data extracted from the Alberta energy grid PDF report.
 """
 
 import os
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import json
+import pickle
 import logging
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
+from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
-import pickle
-import seaborn as sns
+
+from xgboost import XGBRegressor
 
 # Configure logging
 logging.basicConfig(
@@ -46,6 +53,7 @@ class EnergyDataProcessor:
         self.all_assets = None
         self.features = None
         self.targets = None
+        self.logger = logging.getLogger(__name__)
         
     def load_data(self):
         """Load data from CSV files."""
@@ -310,87 +318,170 @@ class EnergyOptimizationModel:
         """Train machine learning models for predicting efficiency and optimization potential."""
         try:
             self.logger.info("Training models...")
-            
+
             # Prepare features and targets
-            X_train, X_test, y_train_dict, y_test_dict, self.feature_names = self.data_processor.prepare_features_and_targets(
-                use_feature_selection=use_feature_selection
+            X_train, X_test, y_train_dict, y_test_dict, self.feature_names = (
+                self.data_processor.prepare_features_and_targets(
+                    use_feature_selection=use_feature_selection
+                )
             )
-            
-            # Initialize and train models for each target
+
+            # Store test data as instance variables for use in plot_model_comparison
+            self.X_test = X_test
+            self.y_test_dict = y_test_dict
+
+            # Scale features once for all models
+            self.scaler = StandardScaler()
+            X_train_scaled = self.scaler.fit_transform(X_train)
+            X_test_scaled = self.scaler.transform(X_test)
+            self.X_test_scaled = X_test_scaled
+
+            n_features = X_train_scaled.shape[1]
+
             for target_name, y_train in y_train_dict.items():
                 self.logger.info(f"Training models for {target_name}...")
-                
-                # Create a dictionary to store models for this target
                 self.models[target_name] = {}
-                
-                # Linear regression
+
+                # Linear Regression
                 lr = LinearRegression()
-                lr.fit(X_train, y_train)
+                lr.fit(X_train_scaled, y_train)
                 self.models[target_name]['linear'] = lr
-                
+
                 # Random Forest
                 rf = RandomForestRegressor(n_estimators=100, random_state=42)
-                rf.fit(X_train, y_train)
+                rf.fit(X_train_scaled, y_train)
                 self.models[target_name]['random_forest'] = rf
-                
+
                 # XGBoost
-                xgb_model = XGBRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
-                xgb_model.fit(X_train, y_train)
+                xgb_model = XGBRegressor(n_estimators=100, learning_rate=0.1,
+                                         random_state=42, verbosity=0)
+                xgb_model.fit(X_train_scaled, y_train)
                 self.models[target_name]['xgboost'] = xgb_model
-                
-                # Neural Network (with early stopping)
-                nn_model = MLPRegressor(
-                    hidden_layer_sizes=(64, 32), 
-                    activation='relu',
-                    solver='adam',
-                    alpha=0.001,
-                    max_iter=500,
-                    early_stopping=True,
-                    random_state=42
+
+                # PyTorch Neural Network
+                nn_model = self._train_pytorch_nn(
+                    X_train_scaled, y_train, X_test_scaled,
+                    y_test_dict[target_name], target_name, n_features
                 )
-                nn_model.fit(X_train, y_train)
                 self.models[target_name]['neural_network'] = nn_model
-                
-                # Evaluate models on test set
+
+                # Evaluate on test set
                 y_test = y_test_dict[target_name]
-                self._evaluate_models(X_test, y_test, target_name)
-                
+                self._evaluate_models(X_test_scaled, y_test, target_name)
+
                 # Save models
                 self._save_models(target_name)
-            
-            # Store feature importance
-            self._analyze_feature_importance(X_train)
-            
+
+            self._analyze_feature_importance(X_train_scaled)
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Error training models: {str(e)}")
             return False
+
+    def _train_pytorch_nn(self, X_train, y_train, X_test, y_test, target_name, n_features):
+        """Train a PyTorch neural network and save a learning curve plot."""
+        X_tr = torch.tensor(X_train, dtype=torch.float32)
+        y_tr = torch.tensor(y_train, dtype=torch.float32).unsqueeze(1)
+        X_te = torch.tensor(X_test, dtype=torch.float32)
+        y_te = torch.tensor(y_test, dtype=torch.float32).unsqueeze(1)
+
+        dataset = TensorDataset(X_tr, y_tr)
+        loader = DataLoader(dataset, batch_size=16, shuffle=True)
+
+        model = nn.Sequential(
+            nn.Linear(n_features, 64),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 1)
+        )
+
+        optimizer = optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-4)
+        criterion = nn.MSELoss()
+
+        train_losses, val_losses = [], []
+        best_val_loss = float('inf')
+        patience, patience_counter = 20, 0
+        best_state = None
+
+        for epoch in range(200):
+            model.train()
+            epoch_loss = 0.0
+            for xb, yb in loader:
+                optimizer.zero_grad()
+                loss = criterion(model(xb), yb)
+                loss.backward()
+                optimizer.step()
+                epoch_loss += loss.item() * len(xb)
+            train_losses.append(epoch_loss / len(X_tr))
+
+            model.eval()
+            with torch.no_grad():
+                val_loss = criterion(model(X_te), y_te).item()
+            val_losses.append(val_loss)
+
+            if val_loss < best_val_loss:
+                best_val_loss = val_loss
+                best_state = {k: v.clone() for k, v in model.state_dict().items()}
+                patience_counter = 0
+            else:
+                patience_counter += 1
+                if patience_counter >= patience:
+                    break
+
+        if best_state:
+            model.load_state_dict(best_state)
+
+        # Save learning curve
+        plots_dir = os.path.join(os.path.dirname(self.model_dir), "plots")
+        os.makedirs(plots_dir, exist_ok=True)
+        plt.figure(figsize=(10, 5))
+        plt.plot(train_losses, label="Train Loss")
+        plt.plot(val_losses, label="Val Loss")
+        plt.title(f"Neural Network Learning Curve — {target_name}")
+        plt.xlabel("Epoch")
+        plt.ylabel("MSE Loss")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(os.path.join(plots_dir, f"nn_learning_curve_{target_name}.png"))
+        plt.close()
+
+        return model
     
     def _evaluate_models(self, X_test, y_test, target_name):
         """Evaluate models on test data."""
         results = {}
-        
+
         for model_name, model in self.models[target_name].items():
-            y_pred = model.predict(X_test)
+            y_pred = self._predict(model, X_test)
             mse = mean_squared_error(y_test, y_pred)
             r2 = r2_score(y_test, y_pred)
             mae = mean_absolute_error(y_test, y_pred)
-            
+
             results[model_name] = {
                 'mse': mse,
                 'rmse': np.sqrt(mse),
                 'r2': r2,
                 'mae': mae
             }
-            
-            self.logger.info(f"{target_name} - {model_name}: RMSE={np.sqrt(mse):.4f}, R²={r2:.4f}, MAE={mae:.4f}")
-        
-        # Determine best model
+            self.logger.info(
+                f"{target_name} - {model_name}: RMSE={np.sqrt(mse):.4f}, R²={r2:.4f}, MAE={mae:.4f}"
+            )
+
         best_model = min(results.items(), key=lambda x: x[1]['mse'])[0]
         self.logger.info(f"Best model for {target_name}: {best_model}")
-        
         return results
+
+    def _predict(self, model, X):
+        """Unified predict helper that handles both sklearn and PyTorch models."""
+        if isinstance(model, nn.Module):
+            model.eval()
+            with torch.no_grad():
+                X_tensor = torch.tensor(X, dtype=torch.float32)
+                return model(X_tensor).squeeze().numpy()
+        return model.predict(X)
     
     def _save_models(self, target_name):
         """Save trained models to disk."""
@@ -475,7 +566,6 @@ class EnergyOptimizationModel:
                     plt.close()
             
             # Save feature importance data as JSON
-            import json
             
             # Custom JSON encoder for NumPy types
             class NumpyEncoder(json.JSONEncoder):
@@ -501,63 +591,45 @@ class EnergyOptimizationModel:
     def plot_model_comparison(self, output_dir):
         """Plot the performance comparison of different models."""
         try:
-            # Create output directory if it doesn't exist
             os.makedirs(output_dir, exist_ok=True)
-            
-            # Plot for each target variable
+
+            if not hasattr(self, 'X_test_scaled') or not hasattr(self, 'y_test_dict'):
+                self.logger.error("No test data available. Run train_models() first.")
+                return False
+
             for target_name, models_dict in self.models.items():
-                # Get model names and create a list to store results
-                model_names = list(models_dict.keys())
-                test_rmse = []
-                test_r2 = []
-                
-                # Evaluate each model
+                model_names, test_rmse, test_r2 = [], [], []
+                y_test = self.y_test_dict[target_name]
+
                 for model_name, model in models_dict.items():
-                    # Skip if model is None
                     if model is None:
                         continue
-                    
-                    # Evaluate on test data
-                    if not hasattr(self, 'X_test') or not hasattr(self, 'y_test_dict'):
-                        self.logger.error("No test data available for evaluation")
-                        continue
-                    
-                    # Get predictions and metrics
-                    X_test, X_train, y_train_dict, y_test_dict, _ = self.data_processor.prepare_features_and_targets(use_feature_selection=True)
-                    y_test = y_test_dict[target_name]
-                    y_pred = model.predict(X_test)
-                    
+                    y_pred = self._predict(model, self.X_test_scaled)
                     mse = mean_squared_error(y_test, y_pred)
-                    rmse = np.sqrt(mse)
-                    r2 = r2_score(y_test, y_pred)
-                    
-                    test_rmse.append(rmse)
-                    test_r2.append(r2)
-                
-                # Create figure with two subplots
+                    test_rmse.append(np.sqrt(mse))
+                    test_r2.append(r2_score(y_test, y_pred))
+                    model_names.append(model_name)
+
                 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
-                
-                # Plot RMSE
-                ax1.bar(model_names, test_rmse)
-                ax1.set_title(f'Test RMSE for {target_name}')
+                ax1.bar(model_names, test_rmse, color='steelblue')
+                ax1.set_title(f'Test RMSE — {target_name}')
                 ax1.set_ylabel('Root Mean Squared Error')
                 ax1.set_xlabel('Model')
-                
-                # Plot R²
-                ax2.bar(model_names, test_r2)
-                ax2.set_title(f'Test R² for {target_name}')
+                ax1.tick_params(axis='x', rotation=15)
+
+                ax2.bar(model_names, test_r2, color='seagreen')
+                ax2.set_title(f'Test R² — {target_name}')
                 ax2.set_ylabel('R² Score')
                 ax2.set_xlabel('Model')
-                
-                # Save the figure
+                ax2.tick_params(axis='x', rotation=15)
+
                 plt.tight_layout()
                 plt.savefig(os.path.join(output_dir, f"model_comparison_{target_name}.png"))
                 plt.close()
-                
                 self.logger.info(f"Saved model comparison plot for {target_name}")
-            
+
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Error plotting model comparison: {str(e)}")
             return False
@@ -582,16 +654,16 @@ class EnergyOptimizationModel:
             potential_model = self.models['optimization_potential'][model_type]
             
             # Prepare the input features for prediction
-            X_train, X_test, y_train_dict, y_test_dict, feature_names = self.data_processor.prepare_features_and_targets(
-                use_feature_selection=True
+            X_train, X_test, y_train_dict, y_test_dict, feature_names = (
+                self.data_processor.prepare_features_and_targets(use_feature_selection=True)
             )
-            
-            # Create a combined dataset for predictions
-            X_combined = pd.concat([X_train, X_test])
-            
+
+            # Combine and scale for full-dataset predictions
+            X_combined = self.scaler.transform(pd.concat([X_train, X_test]))
+
             # Make predictions
-            predicted_efficiency = efficiency_model.predict(X_combined)
-            predicted_potential = potential_model.predict(X_combined)
+            predicted_efficiency = self._predict(efficiency_model, X_combined)
+            predicted_potential = self._predict(potential_model, X_combined)
             
             # Add predictions to the dataframe
             all_assets['predicted_efficiency'] = predicted_efficiency
@@ -797,13 +869,8 @@ def run_optimization_pipeline():
         
         # Initialize data processor
         data_processor = EnergyDataProcessor(data_dir)
-        
-        # Extract data from PDF
-        if not extract_data_from_pdf():
-            logger.error("Failed to extract data from PDF")
-            return False
-        
-        # Load data
+
+        # Load data (PDF extraction is handled by main.py before calling this function)
         if not data_processor.load_data():
             logger.error("Failed to load data")
             return False
